@@ -45,9 +45,48 @@ const sections = [
   },
 ];
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SportsClub',
+  name: 'Breizh Pévèle',
+  description: "Association de danse bretonne et musique celtique à Orchies (Nord). Cours tous les samedis, Fest-Noz, stages.",
+  url: 'https://breizh-pevele.vercel.app',
+  logo: 'https://breizh-pevele.vercel.app/logo.png',
+  image: 'https://breizh-pevele.vercel.app/og-image.jpg',
+  telephone: '',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Salle Marypomme — Oiseau Lyre',
+    addressLocality: 'Orchies',
+    postalCode: '59310',
+    addressCountry: 'FR',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 50.4744,
+    longitude: 3.2408,
+  },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: 'Saturday',
+    opens: '15:00',
+    closes: '17:00',
+  },
+  sameAs: [
+    'https://www.facebook.com/p/Breizh-P%C3%A9v%C3%A8le-61555861410250/',
+    'https://www.instagram.com/breizh_pevele',
+  ],
+  sport: 'Danse bretonne',
+  isAccessibleForFree: true,
+};
+
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
       <main>
         <Hero />
