@@ -87,13 +87,17 @@ export default function ActualitesPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    let received = false;
     try {
       const unsub = subscribeActualites((data) => {
+        received = true;
         const visibleEvents = data.filter(e => e.visible !== false);
         setEvents(visibleEvents.length > 0 ? visibleEvents : DEMO_EVENTS);
         setLoading(false);
       });
-      const timeout = setTimeout(() => { setLoading(false); setEvents(DEMO_EVENTS); }, 3000);
+      const timeout = setTimeout(() => {
+        if (!received) { setLoading(false); setEvents(DEMO_EVENTS); }
+      }, 3000);
       return () => { unsub(); clearTimeout(timeout); };
     } catch {
       setEvents(DEMO_EVENTS);
