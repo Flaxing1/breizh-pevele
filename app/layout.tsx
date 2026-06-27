@@ -3,6 +3,7 @@ import { Montserrat, Open_Sans } from 'next/font/google';
 import './globals.css';
 import RGPDBanner from '@/components/RGPDBanner';
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -84,6 +85,7 @@ export default function RootLayout({
         {children}
         <RGPDBanner />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
