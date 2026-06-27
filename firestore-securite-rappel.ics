@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Breizh Pevele//FR
+BEGIN:VEVENT
+UID:firestore-rules-breizh-pevele@2026
+DTSTAMP:20260627T000000Z
+DTSTART:20260727T090000Z
+DTEND:20260727T093000Z
+SUMMARY:🔒 Mettre à jour les règles Firestore - Breizh Pévèle
+DESCRIPTION:Le mode test Firestore expire aujourd'hui (30 jours après activation).\n\nCe qu'il faut faire :\n\n1. Va sur https://console.firebase.google.com/project/breizh-pevele/firestore/rules\n\n2. Remplace les règles actuelles par ceci :\n\nrules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    match /actualites/{doc} {\n      allow read: if true;\n      allow write: if false;\n    }\n    match /galerie/{doc} {\n      allow read: if true;\n      allow write: if false;\n    }\n  }\n}\n\n3. Clique sur Publier\n\nNote : Les écritures depuis le dashboard admin ne fonctionneront plus sans auth Firebase. Si tu veux garder le dashboard fonctionnel\, contacte Romain pour mettre en place l'authentification Firebase Auth.
+URL:https://console.firebase.google.com/project/breizh-pevele/firestore/rules
+BEGIN:VALARM
+TRIGGER:-P7D
+ACTION:DISPLAY
+DESCRIPTION:Dans 7 jours : règles Firestore à mettre à jour pour Breizh Pévèle
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:Demain : règles Firestore Breizh Pévèle expirent !
+END:VALARM
+END:VEVENT
+END:VCALENDAR

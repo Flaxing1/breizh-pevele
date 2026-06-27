@@ -14,8 +14,6 @@ import {
   type Actualite,
   type GaleriePhoto,
 } from '@/lib/firestore';
-import { getStorage, ref, uploadBytesResumable, getDownloadURL, deleteObject } from 'firebase/storage';
-import app from '@/lib/firebase';
 import { ALL_PHOTOS } from '@/app/galerie/photos';
 
 type ActiveModule = 'actualites' | 'galerie';
@@ -206,8 +204,10 @@ function GalerieModule() {
   const [uploadProgress, setUploadProgress] = useState(0);
   const [dragOver, setDragOver] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const storage = getStorage(app);
   const [initializing, setInitializing] = useState(false);
+
+  const CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+  const UPLOAD_PRESET = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
 
   useEffect(() => {
     try { const unsub = subscribeGalerie(setPhotos); return unsub; } catch { return () => {}; }
@@ -234,19 +234,30 @@ function GalerieModule() {
     if (file.size > 10 * 1024 * 1024) { alert('Image trop volumineuse (max 10 Mo)'); return; }
     setUploading(true);
     setUploadProgress(0);
-    const fileName = `galerie/${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.]/g, '_')}`;
-    const storageRef = ref(storage, fileName);
-    const task = uploadBytesResumable(storageRef, file);
-    task.on('state_changed',
-      (snap) => setUploadProgress(Math.round((snap.bytesTransferred / snap.totalBytes) * 100)),
-      () => { alert('Erreur upload'); setUploading(false); },
-      async () => {
-        const url = await getDownloadURL(task.snapshot.ref);
-        await addGaleriePhoto({ url, alt: file.name.replace(/\.[^/.]+$/, '').replace(/[_-]/g, ' ') });
-        setUploading(false); setUploadProgress(0);
+
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', UPLOAD_PRESET!);
+    formData.append('folder', 'breizh-pevele');
+
+    const xhr = new XMLHttpRequest();
+    xhr.upload.onprogress = (e) => {
+      if (e.lengthComputable) setUploadProgress(Math.round((e.loaded / e.total) * 100));
+    };
+    xhr.onload = async () => {
+      if (xhr.status === 200) {
+        const data = JSON.parse(xhr.responseText);
+        await addGaleriePhoto({ url: data.secure_url, alt: file.name.replace(/\.[^/.]+$/, '').replace(/[_-]/g, ' ') });
+      } else {
+        alert('Erreur upload');
       }
-    );
-  }, [storage]);
+      setUploading(false);
+      setUploadProgress(0);
+    };
+    xhr.onerror = () => { alert('Erreur upload'); setUploading(false); };
+    xhr.open('POST', `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`);
+    xhr.send(formData);
+  }, [CLOUD_NAME, UPLOAD_PRESET]);
 
   const handleDrop = useCallback((e: React.DragEvent) => {
     e.preventDefault(); setDragOver(false);
@@ -255,9 +266,6 @@ function GalerieModule() {
 
   const handleDeletePhoto = async (photo: GaleriePhoto) => {
     if (!confirm('Supprimer cette photo ?')) return;
-    try {
-      if (photo.url.includes('firebasestorage')) await deleteObject(ref(storage, photo.url));
-    } catch { /* ignore */ }
     if (photo.id) await deleteGaleriePhoto(photo.id);
   };
 
