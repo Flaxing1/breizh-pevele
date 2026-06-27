@@ -1,0 +1,20 @@
+# Breizh Pevele
+
+> Association de danse et musique bretonne basée à Orchies (Nord, 59310). Cours tous les samedis à la Salle Marypomme — Oiseau Lyre.
+
+## À propos
+
+Breizh Pevele est une association loi 1901 qui propose des cours de danse bretonne et de musique celtique en Pévèle. L'association organise également des Fest-Noz et participe à la promotion de la culture bretonne dans le Nord de la France.
+
+## Pages
+
+- [Accueil](https://breizh-pevele.vercel.app/) : Présentation de l'association
+- [Nos cours](https://breizh-pevele.vercel.app/nos-cours) : Horaires, tarifs et informations sur les cours de danse bretonne
+- [Actualités](https://breizh-pevele.vercel.app/actualites) : Événements, Fest-Noz et vie de l'association
+- [Galerie](https://breizh-pevele.vercel.app/galerie) : Photos des cours et événements
+- [Contact](https://breizh-pevele.vercel.app/contact) : Nous contacter et nous rejoindre
+
+## Contact
+
+- Lieu : Salle Marypomme — Oiseau Lyre, Orchies (59310)
+- Réseaux : Facebook et Instagram @breizh_pevele
