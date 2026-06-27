@@ -1,0 +1,278 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Google Fonts loaded via next/font/google in layout.tsx */
+
+/* ── Variables CSS ────────────────────────────────────────── */
+:root {
+  --vert: #0E676D;
+  --vert-dark: #0a4f54;
+  --vert-light: #1a8a91;
+  --jaune: #BA9C5A;
+  --jaune-dark: #9a7e46;
+  --jaune-light: #d4b87a;
+  --noir: #1A1A1A;
+  --blanc: #ffffff;
+  --gris: #f5f3f0;
+}
+
+/* ── Reset & Base ─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-opensans), sans-serif;
+  color: var(--noir);
+  background: var(--blanc);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── Triskel filigrane global ─────────────────────────────── */
+.triskel-bg {
+  position: relative;
+  overflow: hidden;
+}
+.triskel-bg::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('/triskel-bg.svg');
+  background-size: 300px 300px;
+  background-repeat: repeat;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Bouton CTA Biais ─────────────────────────────────────── */
+.btn-biais {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--jaune);
+  color: var(--noir);
+  font-family: var(--font-montserrat), sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem 1rem 2rem;
+  clip-path: polygon(15px 0%, 100% 0%, calc(100% - 15px) 100%, 0% 100%);
+  transition: all 0.25s ease;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+
+.btn-biais:hover {
+  background: var(--jaune-dark, #9a7e46);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(186, 156, 90, 0.4);
+}
+
+.btn-biais-vert {
+  background: var(--vert);
+  color: var(--blanc);
+}
+
+.btn-biais-vert:hover {
+  background: var(--vert-dark);
+  box-shadow: 0 8px 25px rgba(14, 103, 109, 0.4);
+}
+
+/* ── Section séparateur biais ─────────────────────────────── */
+.section-biais {
+  position: relative;
+}
+.section-biais::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: inherit;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 40%);
+  z-index: 1;
+}
+
+/* ── Card hover ───────────────────────────────────────────── */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+/* ── Scrollbar personnalisée ──────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb {
+  background: var(--vert);
+  border-radius: 3px;
+}
+
+/* ── Pluie de crêpes (Easter Egg) ────────────────────────── */
+.crepe {
+  position: fixed;
+  top: -80px;
+  font-size: 2.5rem;
+  pointer-events: none;
+  z-index: 9999;
+  animation: crepe-fall 3s ease-in forwards;
+}
+@keyframes crepe-fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  80% { opacity: 1; }
+  100% {
+    transform: translateY(110vh) rotate(540deg);
+    opacity: 0;
+  }
+}
+
+/* ── Triskel Easter Egg (rotation) ───────────────────────── */
+.triskel-secret {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+}
+.triskel-secret.spinning {
+  animation: triskel-spin 3s linear infinite;
+}
+@keyframes triskel-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ── Animations globales ──────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s ease-out forwards;
+}
+.animate-delay-200 { animation-delay: 0.2s; opacity: 0; }
+.animate-delay-400 { animation-delay: 0.4s; opacity: 0; }
+.animate-delay-600 { animation-delay: 0.6s; opacity: 0; }
+
+/* ── Galerie masonry ──────────────────────────────────────── */
+.masonry-grid {
+  columns: 3;
+  column-gap: 1rem;
+}
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.masonry-item img {
+  width: 100%;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.masonry-item:hover img {
+  transform: scale(1.05);
+}
+@media (max-width: 768px) {
+  .masonry-grid { columns: 2; }
+}
+@media (max-width: 480px) {
+  .masonry-grid { columns: 1; }
+}
+
+/* ── Lightbox ─────────────────────────────────────────────── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease;
+}
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* ── RGPD Banner ──────────────────────────────────────────── */
+.rgpd-banner {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 500;
+  background: var(--noir);
+  color: #fff;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  max-width: 700px;
+  width: calc(100% - 2rem);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.5s ease;
+}
+
+/* ── Navigation ───────────────────────────────────────────── */
+.nav-link {
+  position: relative;
+  font-family: var(--font-montserrat), sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
+  padding-bottom: 2px;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--jaune);
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+}
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* ── Gradient text ────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--vert), var(--jaune));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin-bzh59/
+Disallow: /admin-bzh59/dashboard/
+
+Sitemap: https://breizh-pevele.vercel.app/sitemap.xml
