@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { Montserrat, Open_Sans } from 'next/font/google';
 import './globals.css';
 import RGPDBanner from '@/components/RGPDBanner';
-import PromoBanner from '@/components/PromoBanner';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
@@ -83,7 +82,6 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${montserrat.variable} ${openSans.variable}`}>
       <body>
-        <PromoBanner />
         {children}
         <RGPDBanner />
         <Analytics />
