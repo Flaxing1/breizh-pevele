@@ -83,7 +83,7 @@ export default function Hero() {
   const heroPhotos = [
     '/photos/766feb11-f386-414f-b919-2b5cd684af45.webp',
     '/photos/d710c95e-a6be-401b-83d5-80094f47df9c.webp',
-    '/photos/82b17b1f-09d4-4827-8bc4-3dc9bb6974d5.webp',
+    '/photos/3a384d9d-fbd3-4c86-96f3-f67ff5c3cba2.webp',
   ];
   const [photoIdx, setPhotoIdx] = useState(0);
 

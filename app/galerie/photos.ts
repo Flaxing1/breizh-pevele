@@ -3,7 +3,6 @@
 export const ALL_PHOTOS = [
   { src: '/photos/766feb11-f386-414f-b919-2b5cd684af45.webp', alt: 'Fest-Noz Breizh Pévèle' },
   { src: '/photos/d710c95e-a6be-401b-83d5-80094f47df9c.webp', alt: 'Danse bretonne en cercle' },
-  { src: '/photos/82b17b1f-09d4-4827-8bc4-3dc9bb6974d5.webp', alt: 'Cours de danse - formation' },
   { src: '/photos/38f45ba9-cd83-4e6e-9fbe-f7d585b6552c.webp', alt: 'Breizh Pévèle en action' },
   { src: '/photos/455576cf-1d28-452b-8119-1ec806e1eae9.webp', alt: 'Moment de partage breton' },
   { src: '/photos/8877c57e-e0b2-46c7-a801-49cfc22b76ef.webp', alt: 'Ronde bretonne à Orchies' },
