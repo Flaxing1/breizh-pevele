@@ -9,7 +9,6 @@ export const ALL_PHOTOS = [
   { src: '/photos/8877c57e-e0b2-46c7-a801-49cfc22b76ef.webp', alt: 'Ronde bretonne à Orchies' },
   { src: '/photos/95db3996-ded5-41b3-95b5-2ce9321565a1.webp', alt: 'Association Breizh Pévèle' },
   { src: '/photos/b06e1302-e18d-4622-991c-4dd174315055.webp', alt: 'Danse en pévèle' },
-  { src: '/photos/ecb78b7d-d30e-4ac1-bc21-f496c3599a36.webp', alt: 'Fest-noz Orchies' },
   { src: '/photos/3a384d9d-fbd3-4c86-96f3-f67ff5c3cba2.webp', alt: 'Cours danse bretonne 59' },
   { src: '/photos/8ce3ab5f-0f85-426d-b61d-906ec9cc8a4c.webp', alt: 'Breizh Pévèle - cours hebdomadaire' },
   { src: '/photos/906ee8fc-8dff-4c01-bf4b-63934aa32994.webp', alt: 'Musique et danse bretonne' },

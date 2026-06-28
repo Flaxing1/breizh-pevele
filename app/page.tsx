@@ -171,7 +171,7 @@ export default function Home() {
                 '/photos/8877c57e-e0b2-46c7-a801-49cfc22b76ef.webp',
                 '/photos/95db3996-ded5-41b3-95b5-2ce9321565a1.webp',
                 '/photos/b06e1302-e18d-4622-991c-4dd174315055.webp',
-                '/photos/ecb78b7d-d30e-4ac1-bc21-f496c3599a36.webp',
+                '/photos/766feb11-f386-414f-b919-2b5cd684af45.webp',
               ].map((src, i) => (
                 <Link
                   href="/galerie"
