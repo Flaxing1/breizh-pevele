@@ -36,8 +36,10 @@ export const metadata: Metadata = {
     'Breizh Pevele',
     'Salle Marypomme Orchies',
   ],
-  authors: [{ name: 'Breizh Pevele' }],
-  creator: 'Breizh Pevele',
+  applicationName: 'Breizh Pévèle',
+  authors: [{ name: 'Breizh Pévèle' }],
+  creator: 'Breizh Pévèle',
+  publisher: 'Breizh Pévèle',
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
@@ -82,6 +84,16 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${montserrat.variable} ${openSans.variable}`}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: 'Breizh Pévèle',
+            alternateName: 'Breizh Pevele',
+            url: 'https://breizh-pevele.vercel.app',
+          })}}
+        />
         {children}
         <RGPDBanner />
         <Analytics />
