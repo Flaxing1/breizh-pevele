@@ -12,7 +12,7 @@ const infoCards = [
   { icon: '/icon-cours.png', title: 'Jour & Horaire', value: 'Tous les samedis', detail: '15h00 → 17h00', color: '#0E676D' },
   { icon: '/icon-groupe.png', title: 'Public', value: 'Tout le monde !', detail: 'À partir de 10 ans, tous niveaux', color: '#BA9C5A' },
   { icon: '/icon-lieu.png', title: 'Lieu', value: 'Salle Marypomme', detail: 'Oiseau Lyre, Orchies', color: '#0E676D' },
-  { icon: '/icon-tarifs.png', title: 'Tarif annuel', value: '30 € / saison', detail: '+ inscription (1 €)', color: '#BA9C5A' },
+  { icon: '/icon-tarifs.png', title: 'Tarif annuel', value: '30 € / an', detail: '+ adhésion (1 €)', color: '#BA9C5A' },
 ];
 
 const danses = [
