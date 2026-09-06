@@ -101,6 +101,26 @@ export default function NosCoursPage() {
               ))}
             </div>
 
+            {/* T-shirts Breizh Pévèle */}
+            <div
+              className="mt-5 p-6 rounded-2xl flex flex-col md:flex-row items-center gap-6"
+              style={{ background: 'white', boxShadow: '0 4px 16px rgba(0,0,0,0.07)', border: '2px solid rgba(186,156,90,0.3)' }}
+            >
+              <div className="text-4xl flex-shrink-0">👕</div>
+              <div className="flex-1 text-center md:text-left">
+                <h3 style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 800, fontSize: '1rem', color: '#1A1A1A', marginBottom: '0.3rem' }}>
+                  T-shirts floqués Breizh Pévèle
+                </h3>
+                <p style={{ fontFamily: 'var(--font-opensans)', fontSize: '0.88rem', color: '#4a4a4a', lineHeight: 1.65 }}>
+                  Portez les couleurs de l&apos;association ! T-shirts disponibles à la vente lors des cours.
+                </p>
+              </div>
+              <div className="text-center flex-shrink-0">
+                <p style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 900, fontSize: '1.6rem', color: '#BA9C5A', lineHeight: 1 }}>5 €</p>
+                <p style={{ fontFamily: 'var(--font-opensans)', fontSize: '0.75rem', color: '#4a4a4a' }}>l&apos;unité</p>
+              </div>
+            </div>
+
             {/* Adresse complète */}
             <div
               className="mt-8 p-6 rounded-2xl flex flex-col md:flex-row items-center gap-6"
