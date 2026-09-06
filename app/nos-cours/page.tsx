@@ -12,7 +12,7 @@ const infoCards = [
   { icon: '/icon-cours.png', title: 'Jour & Horaire', value: 'Tous les samedis', detail: '15h00 → 17h00', color: '#0E676D' },
   { icon: '/icon-groupe.png', title: 'Public', value: 'Tout le monde !', detail: 'À partir de 10 ans, tous niveaux', color: '#BA9C5A' },
   { icon: '/icon-lieu.png', title: 'Lieu', value: 'Salle Marypomme', detail: 'Oiseau Lyre, Orchies', color: '#0E676D' },
-  { icon: '/icon-tarifs.png', title: 'Tarif annuel', value: '30 € / saison', detail: '+ adhésion association (10 €)', color: '#BA9C5A' },
+  { icon: '/icon-tarifs.png', title: 'Tarif annuel', value: '30 € / saison', detail: '+ inscription (1 €)', color: '#BA9C5A' },
 ];
 
 const danses = [
@@ -60,6 +60,15 @@ export default function NosCoursPage() {
                 🎉 Premier cours GRATUIT — Venez essayer !
               </span>
             </div>
+          </div>
+        </section>
+
+        {/* Annonce rentrée septembre */}
+        <section className="py-6" style={{ background: '#BA9C5A' }}>
+          <div className="max-w-4xl mx-auto px-4 text-center">
+            <p style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 800, fontSize: '1rem', color: 'white', margin: 0 }}>
+              🎉 <strong>Rentrée 2026 !</strong> Le premier cours de septembre a lieu le <strong>samedi 12 septembre</strong> à 15h — venez nombreux !
+            </p>
           </div>
         </section>
 
