@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Footer from '@/components/Footer';
+import Videos from '@/components/Videos';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -193,6 +194,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <Videos />
 
         {/* CTA final inscription */}
         <section
