@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Videos from '@/components/Videos';
 import Image from 'next/image';
 import { subscribeGalerie, type GaleriePhoto } from '@/lib/firestore';
 
@@ -50,6 +51,9 @@ export default function GaleriePage() {
             </p>
           </div>
         </section>
+
+        {/* Vidéos */}
+        <Videos dark />
 
         {/* Grille photos */}
         <section className="py-12" style={{ background: '#111' }}>

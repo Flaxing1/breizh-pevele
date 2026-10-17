@@ -21,9 +21,9 @@ const VIDEOS = [
   },
 ];
 
-export default function Videos() {
+export default function Videos({ dark = false }: { dark?: boolean }) {
   return (
-    <section className="py-20" style={{ background: '#f5f3f0' }} aria-labelledby="videos-heading" id="home-videos">
+    <section className="py-20" style={{ background: dark ? '#1A1A1A' : '#f5f3f0' }} aria-labelledby="videos-heading" id={dark ? 'galerie-videos' : 'home-videos'}>
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-12">
           <div
@@ -34,11 +34,11 @@ export default function Videos() {
           </div>
           <h2
             id="videos-heading"
-            style={{ fontFamily: 'var(--font-montserrat)', fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 900, color: '#1A1A1A', marginBottom: '0.75rem' }}
+            style={{ fontFamily: 'var(--font-montserrat)', fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 900, color: dark ? 'white' : '#1A1A1A', marginBottom: '0.75rem' }}
           >
-            Venez voir <span style={{ color: '#0E676D' }}>comment ça se passe</span>
+            Venez voir <span style={{ color: dark ? '#BA9C5A' : '#0E676D' }}>comment ça se passe</span>
           </h2>
-          <p style={{ fontFamily: 'var(--font-opensans)', fontSize: '1.05rem', color: '#4a4a4a', maxWidth: '520px', margin: '0 auto' }}>
+          <p style={{ fontFamily: 'var(--font-opensans)', fontSize: '1.05rem', color: dark ? 'rgba(255,255,255,0.75)' : '#4a4a4a', maxWidth: '520px', margin: '0 auto' }}>
             Un aperçu de nos cours du samedi à Orchies. Le premier cours est gratuit !
           </p>
         </div>
